@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <h2>Home</h2>
+      <h2>UNID - Radio y Televisión</h2>
     </>
   )
 }
