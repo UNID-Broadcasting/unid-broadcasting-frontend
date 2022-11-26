@@ -1,11 +1,18 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Header from '../components/Header'
+import Hero from '../components/Hero'
+import Horarios from '../components/Horarios'
 
 const Home = () => {
 	return (
 		<>
-			<Navbar />
-			<h2 className='text-4xl font-bold'>UNID - Radio y Televisión</h2>
+			<Header />
+			<main className='pt-20'>
+				<Hero />
+				<div>
+					<Horarios />
+				</div>
+			</main>
 		</>
 	)
 }
