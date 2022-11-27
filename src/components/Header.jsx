@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logoImg from "../assets/logo-unid.png";
+import { Link } from "react-router-dom";
 
 // import useAuth from '../hooks/useAuth'
 
@@ -46,12 +47,12 @@ const Header = () => {
           >
             {Links.map((link) => (
               <li key={link.name} className="text-white md:ml-8 md:my-0 py-1">
-                <a
-                  href={link.link}
+                <Link
+                  to={link.link}
                   className='"text-sm md:text-sm font-semibold hover:text-unid-yellow mb-1'
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
             <div className="flex justify-between border-t-2 py-2 md:border-none text-sm font-bold">
