@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <footer
       className="bg-unid-indigo text-white py-10 mt-10 text-center"
-      style={{ position: "fixed", bottom: 0, width: "100%" }}
+      style={{ position: "absolute", width: "100%" }}
     >
       <div className="flex justify-center">
         {/* Añadimos los iconos de facebook, spotify y youtube */}
@@ -59,8 +59,8 @@ const Footer = () => {
         <p className="text-sm">
           Hecho con <FontAwesomeIcon icon={faHeart} className="text-red-500" />{" "}
           y muchas tazas de{" "}
-          <FontAwesomeIcon icon={faCoffee} className="text-yellow-200" /> por{" "}
-          por el equipo de ingenieros de UNID
+          <FontAwesomeIcon icon={faCoffee} className="text-yellow-200" /> por el
+          equipo de ingenieros de UNID.
         </p>
       </div>
       <p className="text-sm">© {year} UNID</p>

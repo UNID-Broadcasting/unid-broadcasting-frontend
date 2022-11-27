@@ -4,7 +4,7 @@ import PodcastList from "../components/PodcastList";
 const Podcast = () => {
   return (
     <>
-      <main className="pt-40">
+      <main className="mt-40">
         <PodcastList />
       </main>
     </>
