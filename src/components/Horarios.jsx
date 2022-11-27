@@ -8,7 +8,6 @@ const Horarios = ({ day, month, year }) => {
     );
     const programacion = await data.json();
     setProgramacion(programacion);
-    console.log(programacion);
   };
 
   useEffect(() => {

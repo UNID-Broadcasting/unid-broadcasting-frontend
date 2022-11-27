@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Horarios from "../components/Horarios";
 
@@ -12,7 +11,6 @@ const Home = () => {
     );
     const fecha = await data.json();
     setFecha(fecha);
-    console.log(fecha);
   };
 
   useEffect(() => {
@@ -21,7 +19,6 @@ const Home = () => {
 
   return (
     <>
-      <Header />
       <main className="pt-20">
         <Hero />
         <div>
