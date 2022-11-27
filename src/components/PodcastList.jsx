@@ -1,220 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const PodcastList = () => {
+  const [podcasts, setPodcasts] = useState([]);
+
+  useEffect(() => {
+    const obtenerPodcasts = async () => {
+      const data = await fetch(
+        "https://unid-backend-radioytv.onrender.com/api/podcast"
+      );
+      const podcasts = await data.json();
+      setPodcasts(podcasts);
+    };
+    obtenerPodcasts();
+  }, []);
+
   return (
     <div className="container mx-auto px-4">
-      {/* Vamos a tener un scroll a lo horizontal, que no tenga scroll vertical, en el estarán cards sin fondo, con una imagen https://picsum.photos/200/300, descripción y cada card deberá tener un margen que separe a un elemento de otro, máximo se deben de ver 5 elementos por vista*/}
+      <h2 className="text-2xl font-bold text-center my-8">Podcasts</h2>
+      <p className="text-center text-gray-600 mb-8">
+        Disfruta de los mejores podcasts en un solo lugar. Estás en el lugar
+        ideal para disfrutar de contenido diseñado exclusivamente para ti.
+      </p>
       <div className="flex overflow-x-scroll">
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
+        {podcasts.map((podcast, id) => (
+          <div className="flex-shrink-0 m-8" key={id}>
+            <img
+              className="h-48 w-48 rounded-lg object-cover"
+              src={podcast.image}
+              alt="Podcast"
+            />
+            <div className="mt-2">
+              <p className="text-lg text-gray-900 w-48">{podcast.name}</p>
+              <p className="text-gray-600 text-sm w-48">
+                {podcast.description}
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
-        <div className="flex-shrink-0 m-4">
-          <img
-            className="h-48 w-48 rounded-lg"
-            src="https://picsum.photos/200/300"
-            alt="Podcast"
-          />
-          <div className="mt-2">
-            <p className="text-lg text-gray-900">Podcast</p>
-            <p className="text-gray-600 text-sm w-48">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              repellendus repellat fuga quae fugiat enim quaerat magnam, placeat
-              beatae quidem.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
