@@ -15,10 +15,9 @@ const Horarios = ({ day, month, year }) => {
   }, []);
 
   return (
-    <div>
       <>
-        <div className="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
-          <div className="py-8 w-full">
+        <div className="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto ">
+          <div className="mb-48 w-full">
             <h1 className="text-center font-bold text-xl md:text-3xl text-gray-900 leading-tight">
               Programación
             </h1>
@@ -69,7 +68,7 @@ const Horarios = ({ day, month, year }) => {
           </div>
         </div>
       </>
-    </div>
+
   );
 };
 
