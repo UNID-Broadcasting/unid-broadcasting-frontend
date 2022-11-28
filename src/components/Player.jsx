@@ -1,6 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faStop } from "@fortawesome/free-solid-svg-icons";
 
 const Player = () => {
   return (
@@ -21,12 +19,12 @@ const Player = () => {
           </div>
         </div>
         <div className="flex items-center mr-8">
-          <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
-            <FontAwesomeIcon icon={faPlay} className="text-white" />
-          </div>
-          <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center ml-4">
-            <FontAwesomeIcon icon={faStop} className="text-white" />
-          </div>
+          {/* Escucharemos al servidor 109.169.23.124 y puerto 8399 */}
+          <audio
+            src="https://Fps3.listen2myradio.com:2199/listen.php?ip=109.169.23.124&port=8399&type=s1"
+            controls
+            autoPlay
+          ></audio>
         </div>
       </div>
     </>
