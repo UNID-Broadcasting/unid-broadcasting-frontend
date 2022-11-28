@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Home from "../pages/Home";
 import Podcast from "../pages/Podcast";
+import Video from "../pages/Video";
 
 const AppRouter = () => {
   return (
@@ -12,8 +13,9 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/podcast" element={<Podcast />} />
+        <Route path="/video" element={<Video />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </Router>
   );
 };
