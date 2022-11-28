@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Home from "../pages/Home";
 import Podcast from "../pages/Podcast";
+import Team from "../pages/Team";
 import Video from "../pages/Video";
 
 const AppRouter = () => {
@@ -14,6 +15,7 @@ const AppRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/video" element={<Video />} />
+        <Route path="/nosotros" element={<Team />} />
       </Routes>
       <Footer />
     </Router>
