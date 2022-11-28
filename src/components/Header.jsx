@@ -15,7 +15,7 @@ const Header = () => {
   let Links = [
     { name: "INICIO", link: "/" },
     { name: "PODCAST", link: "/podcast" },
-    { name: "VIDEO", link: "/" },
+    { name: "VIDEO", link: "/video" },
     { name: "NOSOTROS", link: "/" },
   ];
   let [open, setOpen] = useState(false);
