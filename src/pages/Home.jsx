@@ -22,7 +22,12 @@ const Home = () => {
       <main className="pt-20">
         <Hero />
         <div>
-          <Horarios day={fecha.day} month={fecha.monthName} year={fecha.year} />
+          <Horarios
+            dayName={fecha.dayName}
+            day={fecha.day}
+            month={fecha.monthName}
+            year={fecha.year}
+          />
         </div>
       </main>
     </>

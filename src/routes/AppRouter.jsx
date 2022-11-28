@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Player from "../components/Player";
 import Home from "../pages/Home";
 import Podcast from "../pages/Podcast";
 import Team from "../pages/Team";
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Route path="/nosotros" element={<Team />} />
       </Routes>
       <Footer />
+      <Player />
     </Router>
   );
 };
