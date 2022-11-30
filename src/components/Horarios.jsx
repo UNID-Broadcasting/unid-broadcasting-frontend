@@ -23,7 +23,6 @@ const Horarios = ({ dayName, day, month, year }) => {
             Programación
           </h1>
           <p className="text-center font-bold text-xl md:text-2xl text-gray-900 leading-tight">
-            <p>Desde el server</p>
             {dayName}, {day} de {month} de {year} -{" "}
             <Clock
               timezone={"America/Mexico_City"}
