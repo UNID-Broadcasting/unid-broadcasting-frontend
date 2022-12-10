@@ -1,11 +1,21 @@
 import React from "react";
 import OurTeam from "../components/OurTeam";
+import { Helmet } from "react-helmet";
 
 const Team = () => {
   return (
-    <main className="mt-40">
-      <OurTeam />
-    </main>
+    <>
+      <Helmet>
+        <title>Nosotros - UNID Radio y Televisión</title>
+        <meta
+          name="description"
+          content="Conoce a todos los involucrados en el proyecto de radio y Televisión UNID."
+        />
+      </Helmet>
+      <main className="mt-40">
+        <OurTeam />
+      </main>
+    </>
   );
 };
 
