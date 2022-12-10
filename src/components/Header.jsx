@@ -25,11 +25,13 @@ const Header = () => {
         <div className="md:flex items-center justify-between bg-unid-indigo py-5 md:px-10 px-4 border-b-2 md:border-none">
           <div className="font-bold text-2xl cursor-pointer flex items-center text-white">
             <span className="text-3xl text-unid-yellow mr-1 pt-2">
-              <img
-                src={logoImg}
-                className="w-40 rounded-lg shadow-lg"
-                alt="logo"
-              />
+              <Link to="/">
+                <img
+                  src={logoImg}
+                  className="w-40 rounded-lg shadow-lg"
+                  alt="UNID-RadioTV"
+                />
+              </Link>
             </span>
           </div>
 
