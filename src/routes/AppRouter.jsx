@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import Podcast from "../pages/Podcast";
 import Team from "../pages/Team";
 import Video from "../pages/Video";
+import Cookies from "../components/Cookies";
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Route path="/video" element={<Video />} />
         <Route path="/nosotros" element={<Team />} />
       </Routes>
+      <Cookies />
       <Footer />
       <Player />
     </Router>
