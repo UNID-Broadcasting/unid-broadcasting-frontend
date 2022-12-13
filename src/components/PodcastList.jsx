@@ -91,7 +91,7 @@ const PodcastList = () => {
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
-                    Escuchalo en spotify
+                    Escúchalo en spotify
                     <img
                       className="h-6 w-6 rounded-lg object-cover ml-2"
                       src="https://cdn-icons-png.flaticon.com/512/152/152756.png"
