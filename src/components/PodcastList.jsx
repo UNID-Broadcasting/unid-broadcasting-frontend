@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import PodcastModal from "./PodcastModal";
+import PureModal from "react-pure-modal";
+import "react-pure-modal/dist/react-pure-modal.min.css";
 
 const PodcastList = () => {
   const [podcasts, setPodcasts] = useState([]);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
+  const [modalData, setModalData] = useState(null);
 
   useEffect(() => {
     const obtenerPodcasts = async () => {
@@ -13,29 +15,9 @@ const PodcastList = () => {
       );
       const podcasts = await data.json();
       setPodcasts(podcasts);
-      console.log(podcasts);
     };
     obtenerPodcasts();
   }, []);
-
-  const getIdByPodcast = (id) => {
-    setModal(true);
-    showModal(id);
-    return id;
-  };
-
-  const showModal = (id) => {
-    return (
-      <PodcastModal
-        id={id}
-        name={podcasts[id].name}
-        description={podcasts[id].description}
-        image={podcasts[id].image}
-        modal={modal}
-        setModal={setModal}
-      />
-    );
-  };
 
   return (
     <>
@@ -50,7 +32,13 @@ const PodcastList = () => {
           style={{ border: "1px solid #e2e8f0", borderRadius: "0.5rem" }}
         >
           {podcasts.map((podcast, id) => (
-            <Link key={id} onClick={() => getIdByPodcast(id)}>
+            <Link
+              key={id}
+              onClick={() => {
+                setModal(true);
+                setModalData(podcast);
+              }}
+            >
               <div className="flex-shrink-0 m-8">
                 <img
                   className="h-48 w-48 rounded-lg object-cover"
@@ -68,6 +56,30 @@ const PodcastList = () => {
           ))}
         </div>
       </div>
+      <PureModal
+        header={modalData ? modalData.name : ""}
+        footer={
+          <div>
+            <button>
+              <img
+                src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1200,h_362/https://www.xookaudio.com/wp-content/uploads/2021/06/escuchar-en-espotify.png"
+                alt="Spotify"
+                className="mx-auto w-48"
+              />
+            </button>
+          </div>
+        }
+        isOpen={modal}
+        onClose={() => setModal(false)}
+        className="w-1/2 mx-auto sm:w-full"
+      >
+        <img
+          src={modal ? modalData.image : ""}
+          alt={`Podcast${modal ? modalData.name : ""}`}
+          className="w-1/2 mx-auto"
+        />
+        <p className="mt-4">{modal ? modalData.description : ""}</p>
+      </PureModal>
     </>
   );
 };
