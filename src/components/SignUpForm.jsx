@@ -25,6 +25,7 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (
       user.name === "" ||
       user.lastname === "" ||
@@ -37,6 +38,14 @@ const SignUpForm = () => {
         icon: "error",
         title: "Oops...",
         text: "Todos los campos son obligatorios",
+      });
+      return;
+    }
+    if (captchaToken === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Debes completar el captcha",
       });
       return;
     } else if (!user.name.match(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{1,40}$/)) {
@@ -265,8 +274,8 @@ const SignUpForm = () => {
           </div>
           <HCaptcha
             sitekey="326c8c0f-c7bf-439d-9bde-c8faa7e85b47"
-            onVerify={setCaptchaToken}
             onLoad={onLoad}
+            onVerify={setCaptchaToken}
             ref={captchaRef}
           />
           <div className="flex flex-col">
