@@ -4,7 +4,9 @@ import SignUpForm from "../components/SignUpForm";
 const Singup = () => {
   return (
     <>
-      <SignUpForm />
+      <div className="m-4">
+        <SignUpForm />
+      </div>
     </>
   );
 };
