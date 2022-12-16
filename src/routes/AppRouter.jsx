@@ -9,6 +9,7 @@ import Team from "../pages/Team";
 import Video from "../pages/Video";
 import Cookies from "../components/Cookies";
 import Singup from "../pages/Singup";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const AppRouter = () => {
   return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
         <Route path="/video" element={<Video />} />
         <Route path="/nosotros" element={<Team />} />
         <Route path="/signup" element={<Singup />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Cookies />
       <Footer />
