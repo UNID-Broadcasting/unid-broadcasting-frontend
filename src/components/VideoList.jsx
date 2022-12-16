@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LoaderSpinner from "./LoaderSpinner";
 
 const VideoList = () => {
   const [videos, setVideos] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const obtenerVideos = async () => {
+    const data = await fetch(
+      "https://unid-backend-radioytv.onrender.com/api/videocast"
+    );
+    const videos = await data.json();
+    setVideos(videos);
+    setIsLoading(true);
+  };
 
   useEffect(() => {
-    const obtenerVideos = async () => {
-      const data = await fetch(
-        "https://unid-backend-radioytv.onrender.com/api/videocast"
-      );
-      const videos = await data.json();
-      setVideos(videos);
-    };
     obtenerVideos();
   }, []);
 
@@ -27,31 +31,35 @@ const VideoList = () => {
             lugar ideal para disfrutar de contenido diseñado exclusivamente para
             ti.
           </p>
-          <div className="flex overflow-x-scroll">
-            {videos.map((video, id) => (
-              <Link
-                key={id}
-                onClick={() => {
-                  setShowModal(true);
-                  setModalData(video);
-                }}
-              >
-                <div className="flex-shrink-0 m-8" key={id}>
-                  <img
-                    className="h-48 w-48 rounded-lg object-cover"
-                    src={video.image}
-                    alt="Podcast"
-                  />
-                  <div className="mt-2">
-                    <p className="text-lg text-gray-900 w-48">{video.name}</p>
-                    <p className="text-gray-600 text-sm w-48">
-                      {video.description}
-                    </p>
+          {isLoading ? (
+            <div className="flex overflow-x-scroll">
+              {videos.map((video, id) => (
+                <Link
+                  key={id}
+                  onClick={() => {
+                    setShowModal(true);
+                    setModalData(video);
+                  }}
+                >
+                  <div className="flex-shrink-0 m-8" key={id}>
+                    <img
+                      className="h-48 w-48 rounded-lg object-cover"
+                      src={video.image}
+                      alt="Podcast"
+                    />
+                    <div className="mt-2">
+                      <p className="text-lg text-gray-900 w-48">{video.name}</p>
+                      <p className="text-gray-600 text-sm w-48">
+                        {video.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <LoaderSpinner />
+          )}
         </div>
       </div>
       {showModal ? (

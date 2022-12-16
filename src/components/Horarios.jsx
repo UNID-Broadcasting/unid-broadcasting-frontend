@@ -28,7 +28,7 @@ const Horarios = ({ dayName, day, month, year }) => {
           </h1>
           {isLoading ? (
             <>
-              <p className="text-center font-bold text-xl md:text-2xl text-gray-900 leading-tight">
+              <p className="text-center font-bold text-xl md:text-2xl text-gray-900 leading-tight mt-6">
                 {dayName}, {day} de {month} de {year} -{" "}
                 <Clock
                   timezone={"America/Mexico_City"}
