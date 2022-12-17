@@ -10,6 +10,7 @@ import Video from "../pages/Video";
 import Cookies from "../components/Cookies";
 import Singup from "../pages/Singup";
 import NotFoundPage from "../pages/NotFoundPage";
+import LoginPage from "../pages/LoginPage";
 
 const AppRouter = () => {
   return (
@@ -20,7 +21,8 @@ const AppRouter = () => {
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/video" element={<Video />} />
         <Route path="/nosotros" element={<Team />} />
-        <Route path="/signup" element={<Singup />} />
+        <Route path="/registro" element={<Singup />} />
+        <Route path="iniciar-sesion" element={<LoginPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Cookies />
