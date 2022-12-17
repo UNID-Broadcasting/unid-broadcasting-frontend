@@ -65,7 +65,7 @@ const SignUpForm = () => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "El correo no puede contener caracteres especiales.",
+        text: "El correo no puede contener caracteres especiales. Se compone de tu ID de alumno seguido de @red.unid.mx",
       });
       return;
     } else if (!user.lastname.match(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{1,40}$/)) {
@@ -88,7 +88,7 @@ const SignUpForm = () => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "El correo no puede contener letras. Debe ser tu correo institucional",
+        text: "El correo no puede contener caracteres especiales. Se compone de tu ID de alumno seguido de @red.unid.mx",
       });
       return;
     } else if (!user.email.includes("@")) {
