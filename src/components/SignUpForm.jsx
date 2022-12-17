@@ -181,10 +181,6 @@ const SignUpForm = () => {
       });
   };
 
-  /* const onLoad = () => {
-    captchaRef.current.execute();
-  }; */
-
   useEffect(() => {
     if (captchaToken) {
       console.log(captchaToken);
@@ -193,7 +189,12 @@ const SignUpForm = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-screen">
+      <div className="mt-48">
+        <h2 className="text-3xl font-bold text-center text-gray-700">
+          Registro de usuario
+        </h2>
+      </div>
+      <div className="flex justify-center items-center mt-8">
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="name">Nombre</label>
@@ -280,7 +281,6 @@ const SignUpForm = () => {
           <div className="mt-4">
             <HCaptcha
               sitekey="326c8c0f-c7bf-439d-9bde-c8faa7e85b47"
-              /* onLoad={onLoad} */
               onVerify={setCaptchaToken}
               ref={captchaRef}
             />
