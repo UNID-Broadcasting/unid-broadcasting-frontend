@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { Link } from "react-router-dom";
 const Swal = require("sweetalert2");
 const uriel = require("../assets/lobo-uriel/Uriel-UNID_100x132.png");
 
@@ -83,7 +84,6 @@ const SignUpForm = () => {
       return;
     }
 
-    /* email only has to have numbers, no letters, max 10 before @ */
     if (!user.email.match(/^[0-9]{1,10}@[a-zA-Z0-9.-]{1,10}.[a-zA-Z]{2,4}$/)) {
       Swal.fire({
         icon: "error",
@@ -181,9 +181,9 @@ const SignUpForm = () => {
       });
   };
 
-  const onLoad = () => {
+  /* const onLoad = () => {
     captchaRef.current.execute();
-  };
+  }; */
 
   useEffect(() => {
     if (captchaToken) {
@@ -203,7 +203,7 @@ const SignUpForm = () => {
               id="name"
               value={user.name}
               onChange={handleChange}
-              className="border border-gray-400 p-2 rounded"
+              className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
           <div className="flex flex-col">
@@ -214,7 +214,7 @@ const SignUpForm = () => {
               id="lastname"
               value={user.lastname}
               onChange={handleChange}
-              className="border border-gray-400 p-2 rounded"
+              className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
           <div className="flex flex-col">
@@ -225,7 +225,7 @@ const SignUpForm = () => {
               id="email"
               value={user.email}
               onChange={handleChange}
-              className="border border-gray-400 p-2 rounded"
+              className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
           <div className="flex flex-col">
@@ -236,7 +236,7 @@ const SignUpForm = () => {
               id="username"
               value={user.username}
               onChange={handleChange}
-              className="border border-gray-400 p-2 rounded"
+              className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
           <div className="flex flex-col">
@@ -247,7 +247,7 @@ const SignUpForm = () => {
               id="password"
               value={user.password}
               onChange={handleChange}
-              className="border border-gray-400 p-2 rounded"
+              className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
           <div className="flex flex-col">
@@ -257,7 +257,7 @@ const SignUpForm = () => {
               id="career"
               value={user.career}
               onChange={handleChange}
-              className="border border-gray-400 p-2 rounded"
+              className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             >
               <option value=""></option>
               <option value="Ingeniería en Sistemas">
@@ -270,21 +270,37 @@ const SignUpForm = () => {
                 Diseño Gráfico Digital
               </option>
               <option value="Mercadotécnia">Mercadotécnia</option>
+              <option value="Mercadotécnia">Psicología Organizacional</option>
+              <option value="Mercadotécnia">Administración de Empresas</option>
+              <option value="Mercadotécnia">
+                Derecho y Ciencias Jurídicas
+              </option>
             </select>
           </div>
-          <HCaptcha
-            sitekey="326c8c0f-c7bf-439d-9bde-c8faa7e85b47"
-            onLoad={onLoad}
-            onVerify={setCaptchaToken}
-            ref={captchaRef}
-          />
+          <div className="mt-4">
+            <HCaptcha
+              sitekey="326c8c0f-c7bf-439d-9bde-c8faa7e85b47"
+              /* onLoad={onLoad} */
+              onVerify={setCaptchaToken}
+              ref={captchaRef}
+            />
+          </div>
           <div className="flex flex-col">
             <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
             >
-              Registrarse
+              Crear cuenta
             </button>
+            <p className="text-sm font-semibold mt-2 pt-1 mb-0">
+              ¿Ya tienes una cuenta?
+              <Link
+                to="/login"
+                className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+              >
+                Inicia sesión
+              </Link>
+            </p>
           </div>
         </form>
       </div>
