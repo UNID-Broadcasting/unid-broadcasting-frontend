@@ -21,8 +21,8 @@ const AppRouter = () => {
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/video" element={<Video />} />
         <Route path="/nosotros" element={<Team />} />
-        <Route path="/registro" element={<Singup />} />
-        <Route path="iniciar-sesion" element={<LoginPage />} />
+        <Route path="/signup" element={<Singup />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Cookies />
