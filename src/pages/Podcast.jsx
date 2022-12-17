@@ -9,7 +9,7 @@ const Podcast = () => {
         <title>Podcast - UNID Radio y Televisión</title>
         <meta
           name="description"
-          content="Bienvenido a Radio UNID, somos una estación de radio universitaria del puerto de Acapulco, Guerrero. Disfruta de nuestra programación en vivo, además de nuestro contenido de video, podcasts, música, noticias, deportes, entretenimiento y mucho más."
+          content="Disfruta de una serie de contenido diseño exclusivamente por estudiantes de la UNID."
         />
       </Helmet>
       <main className="mt-40">

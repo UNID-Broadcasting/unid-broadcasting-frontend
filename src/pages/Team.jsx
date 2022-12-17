@@ -9,7 +9,7 @@ const Team = () => {
         <title>Nosotros - UNID Radio y Televisión</title>
         <meta
           name="description"
-          content="Conoce a todos los involucrados en el proyecto de radio y Televisión UNID."
+          content="Conoce a todos los involucrados en el proyecto de Radio y Televisión UNID."
         />
       </Helmet>
       <main className="mt-40">
