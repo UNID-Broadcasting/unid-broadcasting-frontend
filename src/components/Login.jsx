@@ -33,7 +33,6 @@ const Login = () => {
 
     try {
       const response = await loginService(user);
-      console.log(response);
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem(
@@ -48,8 +47,6 @@ const Login = () => {
         navigate("/");
       }
     } catch (error) {
-      console.log(user);
-      console.log(error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
