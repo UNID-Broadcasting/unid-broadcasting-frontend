@@ -3,7 +3,6 @@ import React from "react";
 const Player = () => {
   return (
     <>
-      {/* Creamos un reproductor de radio que esté en todas las secciones, tiene que ser un pequeño reproductor que se pueda minimizar y maximizar con tailwind */}
       <div className="bg-gray-800 w-full h-16 fixed bottom-0 flex items-center justify-between">
         <div className="flex items-center">
           <div className="w-16 h-16 bg-gray-700">
