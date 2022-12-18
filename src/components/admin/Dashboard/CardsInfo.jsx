@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {
+  getAllPodcastTotal,
+  getAlllVideocastTotal,
+} from "../../../services/generalServices";
 import {
   MicrophoneIcon,
   PlayCircleIcon,
@@ -6,6 +10,24 @@ import {
 } from "@heroicons/react/24/solid";
 
 const CardsInfo = () => {
+  const [totalPodcasts, setTotalPodcasts] = useState(0);
+  const [totalVideos, setTotalVideos] = useState(0);
+
+  const getTotalsPodcasts = async () => {
+    const response = await getAllPodcastTotal();
+    setTotalPodcasts(response.data.length);
+  };
+
+  const getTotalsVideos = async () => {
+    const response = await getAlllVideocastTotal();
+    setTotalVideos(response.data.length);
+  };
+
+  useEffect(() => {
+    getTotalsPodcasts();
+    getTotalsVideos();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col md:flex-row justify-between">
@@ -17,7 +39,7 @@ const CardsInfo = () => {
             </div>
             <div className="ml-4">
               <p className="text-gray-600">Total de Podcasts</p>
-              <p className="text-2xl font-bold">10</p>
+              <p className="text-2xl font-bold">{totalPodcasts}</p>
             </div>
           </div>
         </div>
@@ -29,7 +51,7 @@ const CardsInfo = () => {
             </div>
             <div className="ml-4">
               <p className="text-gray-600">Total de Videos</p>
-              <p className="text-2xl font-bold">10</p>
+              <p className="text-2xl font-bold">{totalVideos}</p>
             </div>
           </div>
         </div>
