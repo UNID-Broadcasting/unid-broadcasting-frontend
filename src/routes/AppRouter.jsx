@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Player from "../components/Player";
@@ -35,6 +40,7 @@ const AppRouter = () => {
         <Route path="/admin/podcasts" element={<PodcastAdmin />} />
         <Route path="/admin/videos" element={<VideoAdmin />} />
         <Route path="/admin/schedule" element={<ProgrammingPage />} />
+        <Route path="/admin/logout" element={<Navigate to="/" />} />
       </Routes>
       <Cookies />
       <Footer />

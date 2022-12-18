@@ -1,9 +1,12 @@
+import UserProvider from "./context/UserProvider";
 import AppRouter from "./routes/AppRouter";
 
 function App() {
   return (
     <>
-      <AppRouter />
+      <UserProvider>
+        <AppRouter />
+      </UserProvider>
     </>
   );
 }
