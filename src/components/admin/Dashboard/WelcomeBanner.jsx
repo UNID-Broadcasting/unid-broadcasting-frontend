@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../../context/UserContext";
 
 const WelcomeBanner = () => {
   const [greeting, setGreeting] = useState("");
+  const { userName } = useContext(UserContext);
 
   const getGreeting = () => {
     const date = new Date();
@@ -25,7 +27,7 @@ const WelcomeBanner = () => {
     <>
       <div className="flex items-center justify-center">
         <h1 className="text-2xl font-bold">{greeting}</h1>
-        <h1 className="text-2xl font-bold">Username</h1>
+        <h1 className="text-2xl font-bold">{userName}</h1>
       </div>
     </>
   );
