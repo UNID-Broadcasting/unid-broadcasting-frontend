@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logoImg from "../assets/logo-unid.png";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 // import useAuth from '../hooks/useAuth'
 
@@ -11,6 +12,8 @@ const Header = () => {
   // 	cerrarSesionAuth()
   // 	localStorage.removeItem('token')
   // }
+
+  const { userName } = useContext(UserContext);
 
   let Links = [
     { name: "INICIO", link: "/" },
@@ -60,8 +63,7 @@ const Header = () => {
             ))}
             <div className="flex justify-between border-t-2 py-2 md:border-none text-sm font-bold">
               <p className="text-white py-3 md:ml-8  uppercase">
-                {/* Hola: {auth.nombre} */}
-                Hola: Usuario
+                {userName ? `Hola: ${userName}` : ""}
               </p>
               <button
                 className="bg-red-600 text-white py-1 px-2 rounded md:ml-8 hover:bg-red-500 duration-500 uppercase inline-flex space-x-2 items-center justify-center"
