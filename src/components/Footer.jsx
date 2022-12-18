@@ -13,7 +13,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-unid-indigo text-white py-10 mt-10 text-center bottom-0">
+    <footer className="bg-unid-indigo text-white py-10 text-center bottom-0">
       <div className="flex justify-center">
         <p className="text-sm text-center">
           Hecho con{" "}

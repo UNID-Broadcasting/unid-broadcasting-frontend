@@ -11,6 +11,7 @@ import Cookies from "../components/Cookies";
 import Singup from "../pages/Singup";
 import NotFoundPage from "../pages/NotFoundPage";
 import LoginPage from "../pages/LoginPage";
+import DashboardHome from "../pages/admin/DashboardHome";
 
 const AppRouter = () => {
   return (
@@ -24,6 +25,8 @@ const AppRouter = () => {
         <Route path="/signup" element={<Singup />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<NotFoundPage />} />
+        {/* Rutas privadas */}
+        <Route path="/admin/dashboard" element={<DashboardHome />} />
       </Routes>
       <Cookies />
       <Footer />
