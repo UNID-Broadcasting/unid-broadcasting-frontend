@@ -44,7 +44,7 @@ const Login = () => {
           title: "Bienvenido",
           text: "Has iniciado sesión correctamente",
         });
-        navigate("/");
+        navigate("/admin/dashboard");
       }
     } catch (error) {
       Swal.fire({

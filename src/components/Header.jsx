@@ -44,7 +44,7 @@ const Header = () => {
 
           <ul
             className={`shadow md:shadow-none md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-unid-indigo md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 p-4 transition-all duration-200 ease-in ${
-              open ? "top-20 " : "top-[-490px]"
+              open ? "top-20 mt-8" : "top-[-490px]"
             }`}
           >
             {Links.map((link) => (
@@ -52,6 +52,7 @@ const Header = () => {
                 <Link
                   to={link.link}
                   className='"text-sm md:text-sm font-semibold hover:text-unid-yellow mb-1'
+                  onClick={() => setOpen(false)}
                 >
                   {link.name}
                 </Link>
