@@ -12,6 +12,10 @@ import Singup from "../pages/Singup";
 import NotFoundPage from "../pages/NotFoundPage";
 import LoginPage from "../pages/LoginPage";
 import DashboardHome from "../pages/admin/DashboardHome";
+import Profile from "../pages/admin/Profile";
+import PodcastAdmin from "../pages/admin/PodcastAdmin";
+import VideoAdmin from "../pages/admin/VideoAdmin";
+import ProgrammingPage from "../pages/admin/ProgrammingPage";
 
 const AppRouter = () => {
   return (
@@ -27,6 +31,10 @@ const AppRouter = () => {
         <Route path="*" element={<NotFoundPage />} />
         {/* Rutas privadas */}
         <Route path="/admin/dashboard" element={<DashboardHome />} />
+        <Route path="/admin/profile" element={<Profile />} />
+        <Route path="/admin/podcasts" element={<PodcastAdmin />} />
+        <Route path="/admin/videos" element={<VideoAdmin />} />
+        <Route path="/admin/schedule" element={<ProgrammingPage />} />
       </Routes>
       <Cookies />
       <Footer />
