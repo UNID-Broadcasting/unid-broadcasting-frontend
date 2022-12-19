@@ -13,7 +13,7 @@ const Header = () => {
   // 	localStorage.removeItem('token')
   // }
 
-  const { userName } = useContext(UserContext);
+  const { userName, user } = useContext(UserContext);
 
   let Links = [
     { name: "INICIO", link: "/" },
@@ -24,6 +24,7 @@ const Header = () => {
   let [open, setOpen] = useState(false);
   return (
     <>
+      {console.log(user)}
       <div className="shadow-md w-full fixed  z-[6666] top-0 left-0 ">
         <div className="md:flex items-center justify-between bg-unid-indigo py-5 md:px-10 px-4 border-b-2 md:border-none">
           <div className="font-bold text-2xl cursor-pointer flex items-center text-white">
@@ -71,20 +72,48 @@ const Header = () => {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
+                  strokeWidth="1.5"
                   stroke="currentColor"
-                  strokeWidth={2}
+                  className="w-6 h-6"
                 >
                   <path
-                    strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                    strokelinejoinn="round"
+                    d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
                   />
                 </svg>
+
                 <span>Cerrar Sesión</span>
               </button>
+              {/* El botón Link debe tener los mismos estilos de cerrar sesión */}
+              <Link
+                className="bg-unid-yellow text-white py-1 px-2 rounded md:ml-8 hover:bg-yellow-400 duration-500 uppercase inline-flex space-x-2 items-center justify-center"
+                to="/login"
+              >
+                <button
+                  className="bg-unid-yellow text-white rounded hover:bg-yellow-400 duration-500 uppercase inline-flex space-x-2 items-center justify-center"
+                  // onClick={auth}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinejoin="round"
+                      strokelinejoinn="round"
+                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                    />
+                  </svg>
+
+                  <span>Iniciar Sesión</span>
+                </button>
+              </Link>
             </div>
           </ul>
         </div>

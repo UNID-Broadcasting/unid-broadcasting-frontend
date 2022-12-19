@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { loginService } from "../services/userServices";
 import { useNavigate } from "react-router-dom";
 import LoaderSpinner from "./LoaderSpinner";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 const Swal = require("sweetalert2");
 
 const Login = () => {
@@ -12,6 +13,8 @@ const Login = () => {
     username: "",
     password: "",
   });
+
+  const { login } = useContext(UserContext);
 
   const handleInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -33,6 +36,7 @@ const Login = () => {
 
     try {
       const response = await loginService(user);
+      login(response.data);
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem(
