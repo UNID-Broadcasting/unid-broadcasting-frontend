@@ -49,22 +49,25 @@ const UserProvider = ({ children }) => {
   const verifyingToken = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
-      console.log(`Este es el token: ${token}`);
       if (token) {
-        console.log(token);
         const response = await verifyTokenService();
-        console.log(response);
+        if (response.ok === true) {
+          setUser({
+            username: response.data.username,
+            uid: response.data.id,
+            authStatus: true,
+          });
+          setUserName(response.data.username);
+        }
       }
     } catch (error) {
-      console.log("Hola, hay error");
       console.log(error);
     }
   }, []);
 
   useEffect(() => {
     getUserName();
-    verifyingToken();
-  }, [verifyingToken]);
+  }, []);
 
   return (
     <UserContext.Provider
