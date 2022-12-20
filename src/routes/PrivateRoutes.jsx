@@ -1,7 +1,38 @@
 import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Singup from "../pages/Singup";
+import NotFoundPage from "../pages/NotFoundPage";
+import LoginPage from "../pages/LoginPage";
+import DashboardHome from "../pages/admin/DashboardHome";
+import Profile from "../pages/admin/Profile";
+import PodcastAdmin from "../pages/admin/PodcastAdmin";
+import VideoAdmin from "../pages/admin/VideoAdmin";
+import ProgrammingPage from "../pages/admin/ProgrammingPage";
+import Home from "../pages/Home";
+import Podcast from "../pages/Podcast";
+import Team from "../pages/Team";
+import Video from "../pages/Video";
 
 const PrivateRoutes = () => {
-  return <div>PrivateRoutes</div>;
+  return (
+    <Routes>
+      {/* Rutas públicas */}
+      <Route path="/" element={<Home />} />
+      <Route path="/podcast" element={<Podcast />} />
+      <Route path="/video" element={<Video />} />
+      <Route path="/nosotros" element={<Team />} />
+      <Route path="/signup" element={<Singup />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+      {/* Rutas privadas */}
+      <Route path="/admin/dashboard" element={<DashboardHome />} />
+      <Route path="/admin/profile" element={<Profile />} />
+      <Route path="/admin/podcasts" element={<PodcastAdmin />} />
+      <Route path="/admin/videos" element={<VideoAdmin />} />
+      <Route path="/admin/schedule" element={<ProgrammingPage />} />
+      <Route path="/admin/logout" element={<Navigate to="/" />} />
+    </Routes>
+  );
 };
 
 export default PrivateRoutes;
