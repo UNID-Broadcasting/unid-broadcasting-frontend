@@ -45,7 +45,7 @@ const links = [
   },
   {
     name: "Log out",
-    href: "/admin/logout",
+    href: "/",
     icon: ArrowLeftOnRectangleIcon,
     current: false,
   },

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = "https://unid-backend-radioytv.onrender.com/api";
-const url_auth = `${baseUrl}/auth`;
+const url_auth = `${baseUrl}/auth/`;
 
 const ConfigHeader = {
   headers: {
