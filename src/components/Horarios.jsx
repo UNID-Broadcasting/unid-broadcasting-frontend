@@ -61,7 +61,7 @@ const Horarios = ({ dayName, day, month, year }) => {
                         return new Date(a.date) - new Date(b.date);
                       })
                       .map((programa) => (
-                        <tr key={programa.id}>
+                        <tr key={programa.uid}>
                           <td className="w-1/3 text-left py-3 px-4">
                             {programa.name}
                           </td>
