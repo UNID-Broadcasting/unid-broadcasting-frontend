@@ -205,6 +205,7 @@ const SignUpForm = () => {
               placeholder="Ej.: Uriel"
               value={user.name}
               onChange={handleChange}
+              required
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
@@ -217,6 +218,7 @@ const SignUpForm = () => {
               placeholder="Ej.: Lobo Rojo"
               value={user.lastname}
               onChange={handleChange}
+              required
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
@@ -229,6 +231,7 @@ const SignUpForm = () => {
               placeholder="Ej.: 00123456@red.unid.mx"
               value={user.email}
               onChange={handleChange}
+              required
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
@@ -241,6 +244,7 @@ const SignUpForm = () => {
               placeholder="Ej.: UrielUNID"
               value={user.username}
               onChange={handleChange}
+              required
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
@@ -252,6 +256,7 @@ const SignUpForm = () => {
               id="password"
               value={user.password}
               onChange={handleChange}
+              required
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
@@ -262,6 +267,7 @@ const SignUpForm = () => {
               id="career"
               value={user.career}
               onChange={handleChange}
+              required
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             >
               <option value=""></option>
