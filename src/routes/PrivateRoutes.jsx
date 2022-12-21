@@ -22,15 +22,18 @@ const PrivateRoutes = () => {
       <Route path="/video" element={<Video />} />
       <Route path="/nosotros" element={<Team />} />
       <Route path="/signup" element={<Singup />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="*" element={<NotFoundPage />} />
+      <Route path="/login" element={<Navigate to="/admin/dashboard" />} />
+
       {/* Rutas privadas */}
+
       <Route path="/admin/dashboard" element={<DashboardHome />} />
       <Route path="/admin/profile" element={<Profile />} />
       <Route path="/admin/podcasts" element={<PodcastAdmin />} />
       <Route path="/admin/videos" element={<VideoAdmin />} />
       <Route path="/admin/schedule" element={<ProgrammingPage />} />
       <Route path="/admin/logout" element={<Navigate to="/" />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };
