@@ -13,7 +13,7 @@ const Header = () => {
   // 	localStorage.removeItem('token')
   // }
 
-  const { userName, user, logout } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
 
   let Links = [
     { name: "INICIO", link: "/" },
@@ -64,7 +64,7 @@ const Header = () => {
             {user.authStatus ? (
               <div className="flex justify-between border-t-2 py-2 md:border-none text-sm font-bold">
                 <p className="text-white py-3 md:ml-8  uppercase">
-                  {userName ? `Hola: ${userName}` : ""}
+                  {user ? `Hola: ${user.username}` : ""}
                 </p>
                 <Link
                   className="bg-red-600 text-white py-1 px-2 rounded md:ml-8 hover:bg-red-500 duration-500 uppercase inline-flex space-x-2 items-center justify-center"

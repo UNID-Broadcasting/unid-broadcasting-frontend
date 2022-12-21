@@ -1,33 +1,27 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { UserContext } from "./UserContext";
 import { verifyTokenService } from "../services/userServices";
 
 const UserProvider = ({ children }) => {
-  const [userName, setUserName] = useState();
   const [user, setUser] = useState({
     username: null,
     uid: null,
     authStatus: false,
+    role: null,
+    isLoadingData: true,
   });
-
-  const getUserName = () => {
-    const username = localStorage.getItem("user");
-    if (username) {
-      setUserName(JSON.parse(username));
-    }
-  };
 
   /* Función que recibe el login */
   const login = (data) => {
     try {
-      console.log(data);
       if (data.ok === true) {
         setUser({
           username: data.data.username,
           uid: data.data.id,
           authStatus: true,
+          role: data.data.role,
+          isLoadingData: false,
         });
-        setUserName(data.data.username);
       }
     } catch (error) {
       console.log(error);
@@ -39,10 +33,12 @@ const UserProvider = ({ children }) => {
     setUser({
       username: null,
       password: null,
+      authStatus: false,
+      role: null,
+      isLoadingData: false,
     });
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    setUserName(null);
   };
 
   /* Función que verifica nuestro token */
@@ -56,8 +52,9 @@ const UserProvider = ({ children }) => {
             username: response.data.username,
             uid: response.data.id,
             authStatus: true,
+            role: response.data.role,
+            isLoadingData: false,
           });
-          setUserName(response.data.username);
         }
       }
     } catch (error) {
@@ -65,14 +62,8 @@ const UserProvider = ({ children }) => {
     }
   }, []);
 
-  useEffect(() => {
-    getUserName();
-  }, []);
-
   return (
-    <UserContext.Provider
-      value={{ userName, setUserName, login, logout, user, verifyingToken }}
-    >
+    <UserContext.Provider value={{ login, logout, user, verifyingToken }}>
       {children}
     </UserContext.Provider>
   );

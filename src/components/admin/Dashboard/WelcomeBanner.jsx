@@ -3,7 +3,7 @@ import { UserContext } from "../../../context/UserContext";
 
 const WelcomeBanner = () => {
   const [greeting, setGreeting] = useState("");
-  const { userName } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const getGreeting = () => {
     const date = new Date();
@@ -26,8 +26,9 @@ const WelcomeBanner = () => {
   return (
     <>
       <div className="flex items-center justify-center">
-        <h1 className="text-2xl font-bold">{greeting}</h1>
-        <h1 className="text-2xl font-bold">{userName}</h1>
+        <h1 className="text-2xl font-bold">
+          {greeting}, {user.username}.
+        </h1>
       </div>
     </>
   );

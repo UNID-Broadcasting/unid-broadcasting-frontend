@@ -18,7 +18,7 @@ const AppRouter = () => {
   return (
     <Router>
       <Header />
-      {user.authStatus ? <PrivateRoutes /> : <PublicRoutes />}
+      {user.role === "USER_REGISTERED" ? <PrivateRoutes /> : <PublicRoutes />}
       <Cookies />
       <Footer />
       <Player />
