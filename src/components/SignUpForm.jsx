@@ -202,6 +202,7 @@ const SignUpForm = () => {
               type="text"
               name="name"
               id="name"
+              placeholder="Ej.: Uriel"
               value={user.name}
               onChange={handleChange}
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -213,6 +214,7 @@ const SignUpForm = () => {
               type="text"
               name="lastname"
               id="lastname"
+              placeholder="Ej.: Lobo Rojo"
               value={user.lastname}
               onChange={handleChange}
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -224,6 +226,7 @@ const SignUpForm = () => {
               type="email"
               name="email"
               id="email"
+              placeholder="Ej.: 00123456@red.unid.mx"
               value={user.email}
               onChange={handleChange}
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -235,6 +238,7 @@ const SignUpForm = () => {
               type="text"
               name="username"
               id="username"
+              placeholder="Ej.: UrielUNID"
               value={user.username}
               onChange={handleChange}
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -261,8 +265,9 @@ const SignUpForm = () => {
               className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             >
               <option value=""></option>
+              <option disabled>Licenciaturas</option>
               <option value="Ingeniería en Sistemas">
-                Ingeniería en Sistemas
+                Ing. en Sistemas y Desarrollo de Software
               </option>
               <option value="Ciencias y Técnicas de la Comunicación">
                 Ciencias y Técnicas de la Comunicación
@@ -276,6 +281,8 @@ const SignUpForm = () => {
               <option value="Mercadotécnia">
                 Derecho y Ciencias Jurídicas
               </option>
+              <option disabled>--------------------</option>
+              <option value="Ingeniería en Sistemas">Administrativo</option>
             </select>
           </div>
           <div className="mt-4">
