@@ -21,6 +21,5 @@ export const registerService = async (data) => {
 
 export const verifyTokenService = async () => {
   const response = await axios.get(`${url_auth}`, ConfigHeader);
-  console.log(`Esta es la respuesta del servicio: ${JSON.stringify(response)}`);
-  return response;
+  return response.data;
 };
