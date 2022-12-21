@@ -282,13 +282,18 @@ const SignUpForm = () => {
                 Diseño Gráfico Digital
               </option>
               <option value="Mercadotécnia">Mercadotécnia</option>
-              <option value="Mercadotécnia">Psicología Organizacional</option>
-              <option value="Mercadotécnia">Administración de Empresas</option>
+              <option value="Psicología Organizacional">
+                Psicología Organizacional
+              </option>
+              <option value="Administración de Empresas">
+                Administración de Empresas
+              </option>
               <option value="Mercadotécnia">
                 Derecho y Ciencias Jurídicas
               </option>
               <option disabled>--------------------</option>
-              <option value="Ingeniería en Sistemas">Administrativo</option>
+              <option value="Administrativo">Administrativo</option>
+              <option value="Docente">Docente</option>
             </select>
           </div>
           <div className="mt-4">
