@@ -7,7 +7,6 @@ import {
   PlayCircleIcon,
   CalendarIcon,
   BellAlertIcon,
-  ArrowLeftOnRectangleIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
 
@@ -43,15 +42,9 @@ const links = [
     icon: CalendarIcon,
     current: false,
   },
-  {
-    name: "Log out",
-    href: "/",
-    icon: ArrowLeftOnRectangleIcon,
-    current: false,
-  },
 ];
 
-const Header = () => {
+const AdminHeader = () => {
   const [menu, setMenu] = useState(false);
   const [menuMobile, setMenuMobile] = useState(false);
 
@@ -72,7 +65,7 @@ const Header = () => {
   }, [menu]);
 
   return (
-    <header className="bg-unid-indigo mt-32 mb-10">
+    <header className="bg-unid-indigo -mt-4">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -153,4 +146,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AdminHeader;

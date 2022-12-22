@@ -12,7 +12,7 @@ const Video = () => {
           content="Disfruta del contenido de video de UNID Radio y Televisión."
         />
       </Helmet>
-      <main className="mt-40">
+      <main className="mt-5">
         <VideoList />
       </main>
     </>

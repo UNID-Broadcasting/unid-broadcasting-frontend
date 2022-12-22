@@ -26,7 +26,7 @@ const Home = () => {
           content="Bienvenido a Radio UNID, somos una estación de radio universitaria del puerto de Acapulco, Guerrero. Disfruta de nuestra programación en vivo, además de nuestro contenido de video, podcasts, música, noticias, deportes, entretenimiento y mucho más."
         />
       </Helmet>
-      <main className="pt-20">
+      <main>
         <Hero />
         <div>
           <Horarios

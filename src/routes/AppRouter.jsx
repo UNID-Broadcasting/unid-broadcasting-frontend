@@ -7,6 +7,7 @@ import Player from "../components/Player";
 import Cookies from "../components/Cookies";
 import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
+import AdminHeader from "../components/admin/AdminHeader";
 
 const AppRouter = () => {
   const { user, verifyingToken } = useContext(UserContext);
@@ -17,7 +18,10 @@ const AppRouter = () => {
 
   return (
     <Router>
-      <Header />
+      <div className="mb-36">
+        <Header />
+      </div>
+      {user.role === "USER_REGISTERED" ? <AdminHeader /> : null}
       {user.role === "USER_REGISTERED" ? <PrivateRoutes /> : <PublicRoutes />}
       <Cookies />
       <Footer />
