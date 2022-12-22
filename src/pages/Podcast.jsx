@@ -12,7 +12,7 @@ const Podcast = () => {
           content="Disfruta de una serie de contenido diseño exclusivamente por estudiantes de la UNID."
         />
       </Helmet>
-      <main className="mt-40">
+      <main className="mt-5">
         <PodcastList />
       </main>
     </>

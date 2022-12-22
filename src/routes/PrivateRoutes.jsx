@@ -25,7 +25,6 @@ const PrivateRoutes = () => {
       <Route path="/login" element={<Navigate to="/admin/dashboard" />} />
 
       {/* Rutas privadas */}
-
       <Route path="/admin/dashboard" element={<DashboardHome />} />
       <Route path="/admin/profile" element={<Profile />} />
       <Route path="/admin/podcasts" element={<PodcastAdmin />} />

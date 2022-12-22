@@ -12,7 +12,7 @@ const Team = () => {
           content="Conoce a todos los involucrados en el proyecto de Radio y Televisión UNID."
         />
       </Helmet>
-      <main className="mt-40">
+      <main className="mt-5">
         <OurTeam />
       </main>
     </>
