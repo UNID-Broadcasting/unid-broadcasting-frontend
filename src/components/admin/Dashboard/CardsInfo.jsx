@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  getAllPodcastTotal,
-  getAlllVideocastTotal,
-} from "../../../services/generalServices";
+import { getPodcastService } from "../../../services/podcastServices";
+import { getAlllVideocastTotal } from "../../../services/videocastServices";
 import {
   MicrophoneIcon,
   PlayCircleIcon,
@@ -14,7 +12,7 @@ const CardsInfo = () => {
   const [totalVideos, setTotalVideos] = useState(0);
 
   const getTotalsPodcasts = async () => {
-    const response = await getAllPodcastTotal();
+    const response = await getPodcastService();
     setTotalPodcasts(response.data.length);
   };
 
