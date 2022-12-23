@@ -34,8 +34,25 @@ const PublicRoutes = () => {
       <Route path="/signup" element={<Singup />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/admin" element={<NotFoundPage />} />
+      {/* Rutas Privadas */}
       <Route
         path="/admin/dashboard"
+        element={token ? <LoadingPage /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/admin/profile"
+        element={token ? <LoadingPage /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/admin/podcasts"
+        element={token ? <LoadingPage /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/admin/videos"
+        element={token ? <LoadingPage /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/admin/schedule"
         element={token ? <LoadingPage /> : <Navigate to="/login" />}
       />
       <Route path="*" element={<NotFoundPage />} />
