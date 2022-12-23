@@ -1,5 +1,6 @@
 import PodcastProvider from "./context/PodcastProvider";
 import UserProvider from "./context/UserProvider";
+import VideoProvider from "./context/VideoProvider";
 import AppRouter from "./routes/AppRouter";
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
     <>
       <UserProvider>
         <PodcastProvider>
-          <AppRouter />
+          <VideoProvider>
+            <AppRouter />
+          </VideoProvider>
         </PodcastProvider>
       </UserProvider>
     </>
