@@ -77,7 +77,7 @@ const Podcast = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        setIsLoading(true);
+        setIsLoading(false);
       });
   };
 
@@ -102,7 +102,7 @@ const Podcast = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        setIsLoading(true);
+        setIsLoading(false);
       });
   };
 
@@ -127,7 +127,7 @@ const Podcast = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        setIsLoading(true);
+        setIsLoading(false);
       });
   };
 
@@ -147,7 +147,7 @@ const Podcast = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          setIsLoading(true);
+          setIsLoading(false);
         });
     };
     getPodcast();
