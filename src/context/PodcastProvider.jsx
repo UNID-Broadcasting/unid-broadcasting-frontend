@@ -8,8 +8,10 @@ const PodcastProvider = ({ children }) => {
     description: null,
     podcastNumber: null,
     image: null,
+    date: null,
     time: null,
     category: null,
+    url: null,
     isLoadingData: true,
   });
 
@@ -22,8 +24,10 @@ const PodcastProvider = ({ children }) => {
           description: data.data.description,
           podcastNumber: data.data.podcastNumber,
           image: data.data.image,
+          date: data.data.date,
           time: data.data.time,
           category: data.data.category,
+          url: data.data.url,
           isLoadingData: false,
         });
       }
@@ -41,8 +45,10 @@ const PodcastProvider = ({ children }) => {
           description: data.data.description,
           podcastNumber: data.data.podcastNumber,
           image: data.data.image,
+          date: data.data.date,
           time: data.data.time,
           category: data.data.category,
+          url: data.data.url,
           isLoadingData: false,
         });
       }
@@ -60,8 +66,10 @@ const PodcastProvider = ({ children }) => {
           description: data.data.description,
           podcastNumber: data.data.podcastNumber,
           image: data.data.image,
+          date: data.data.date,
           time: data.data.time,
           category: data.data.category,
+          url: data.data.url,
           isLoadingData: false,
         });
       }
@@ -79,8 +87,10 @@ const PodcastProvider = ({ children }) => {
           description: data.data.description,
           podcastNumber: data.data.podcastNumber,
           image: data.data.image,
+          date: data.data.date,
           time: data.data.time,
           category: data.data.category,
+          url: data.data.url,
           isLoadingData: false,
         });
       }
@@ -98,8 +108,10 @@ const PodcastProvider = ({ children }) => {
           description: data.data.description,
           podcastNumber: data.data.podcastNumber,
           image: data.data.image,
+          date: data.data.date,
           time: data.data.time,
           category: data.data.category,
+          url: data.data.url,
           isLoadingData: false,
         });
       }
