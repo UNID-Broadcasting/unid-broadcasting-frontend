@@ -6,6 +6,8 @@ const UserProvider = ({ children }) => {
   const [user, setUser] = useState({
     username: null,
     uid: null,
+    name: null,
+    lastname: null,
     authStatus: false,
     role: null,
     isLoadingData: true,
@@ -17,6 +19,8 @@ const UserProvider = ({ children }) => {
       if (data.ok === true) {
         setUser({
           username: data.data.username,
+          name: data.data.name,
+          lastname: data.data.lastname,
           uid: data.data.id,
           authStatus: true,
           role: data.data.role,
@@ -32,6 +36,9 @@ const UserProvider = ({ children }) => {
   const logout = () => {
     setUser({
       username: null,
+      uid: null,
+      name: null,
+      lastname: null,
       password: null,
       authStatus: false,
       role: null,
