@@ -200,7 +200,7 @@ const Podcast = () => {
                             name="name"
                             id="podcast-name"
                             autoComplete="given-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             value={podcastData.name || ""}
                             onChange={handleInputChange}
                           />
@@ -208,17 +208,18 @@ const Podcast = () => {
                             htmlFor="podcast-description"
                             className="block text-sm font-medium text-gray-700 mt-4"
                           >
-                            Descripción del podcast
+                            Descripción del podcast (200 caracteres máx.)
                           </label>
-                          <input
+                          <textarea
                             required
                             type="text"
                             name="description"
                             id="podcast-description"
                             autoComplete="given-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             value={podcastData.description || ""}
                             onChange={handleInputChange}
+                            maxLength="200"
                           />
                           <label
                             htmlFor="podcast-number"
@@ -233,7 +234,7 @@ const Podcast = () => {
                             name="number"
                             id="podcast-number"
                             autoComplete="given-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             value={podcastNumber}
                             onChange={handleInputChange}
                           />
@@ -245,11 +246,12 @@ const Podcast = () => {
                           </label>
                           <input
                             required
+                            placeholder="https://assets.puzzlefactory.pl/puzzle/341/838/original.jpg"
                             type="text"
                             name="image"
                             id="podcast-image"
                             autoComplete="given-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             value={podcastData.image || ""}
                             onChange={handleInputChange}
                           />
@@ -265,11 +267,12 @@ const Podcast = () => {
                             </span>
                             <input
                               required
+                              placeholder="www.ejemplo.com"
                               type="text"
                               name="url"
                               id="podcast-url"
                               autoComplete="given-name"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                               value={podcastData.url || ""}
                               onChange={handleInputChange}
                             />
@@ -286,7 +289,7 @@ const Podcast = () => {
                             name="date"
                             id="podcast-date"
                             autoComplete="given-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             value={podcastData.date || ""}
                             onChange={handleInputChange}
                           />
@@ -298,11 +301,12 @@ const Podcast = () => {
                           </label>
                           <input
                             required
+                            placeholder="10"
                             type="number"
                             name="time"
                             id="podcast-time"
                             autoComplete="given-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             value={podcastData.time || ""}
                             onChange={handleInputChange}
                           />
@@ -317,7 +321,7 @@ const Podcast = () => {
                             name="category"
                             id="podcast-category"
                             autoComplete="given-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className="p-1 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             value={podcastData.category || ""}
                             onChange={handleInputChange}
                           >
@@ -381,7 +385,7 @@ const Podcast = () => {
                                   </label>
                                   <p className="text-gray-500">
                                     Estoy conciente que al dar clic en "crear",
-                                    una vez llenado el formuluario, este será
+                                    una vez llenado el formulario, este será
                                     enviado al sitio principal.
                                   </p>
                                 </div>
