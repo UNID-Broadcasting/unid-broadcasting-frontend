@@ -1,9 +1,10 @@
 import React from "react";
+import Videos from "../../components/admin/Videos/Videos";
 
 const VideoAdmin = () => {
   return (
     <>
-      <h1>VideoAdmin</h1>
+      <Videos />
     </>
   );
 };
