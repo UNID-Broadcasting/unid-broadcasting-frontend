@@ -220,6 +220,7 @@ const Podcast = () => {
                             value={podcastData.description || ""}
                             onChange={handleInputChange}
                             maxLength="200"
+                            minLength="10"
                           />
                           <label
                             htmlFor="podcast-number"
@@ -247,7 +248,7 @@ const Podcast = () => {
                           <input
                             required
                             placeholder="https://assets.puzzlefactory.pl/puzzle/341/838/original.jpg"
-                            type="text"
+                            type="url"
                             name="image"
                             id="podcast-image"
                             autoComplete="given-name"
@@ -268,7 +269,7 @@ const Podcast = () => {
                             <input
                               required
                               placeholder="www.ejemplo.com"
-                              type="text"
+                              type="url"
                               name="url"
                               id="podcast-url"
                               autoComplete="given-name"
