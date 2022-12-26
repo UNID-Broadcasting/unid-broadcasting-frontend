@@ -1,9 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { loginService } from "../services/userServices";
 import { useNavigate } from "react-router-dom";
 import LoaderSpinner from "./LoaderSpinner";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 const Swal = require("sweetalert2");
 
 const Login = () => {
@@ -13,6 +14,8 @@ const Login = () => {
     username: "",
     password: "",
   });
+  const [captchaToken, setCaptchaToken] = useState("");
+  const captchaRef = useRef(null);
 
   const { login } = useContext(UserContext);
 
@@ -23,6 +26,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     setIsLogin(true);
     e.preventDefault();
+
+    if (captchaToken === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Debes completar el captcha",
+      });
+      return;
+    }
 
     if (user.username === "" || user.password === "") {
       Swal.fire({
@@ -59,6 +71,12 @@ const Login = () => {
     }
     setIsLogin(false);
   };
+
+  useEffect(() => {
+    if (captchaToken) {
+      console.log(captchaToken);
+    }
+  }, [captchaToken]);
 
   return (
     <>
@@ -112,6 +130,11 @@ const Login = () => {
                       Recuérdame
                     </label>
                   </div>
+                  <HCaptcha
+                    sitekey="326c8c0f-c7bf-439d-9bde-c8faa7e85b47"
+                    onVerify={setCaptchaToken}
+                    ref={captchaRef}
+                  />
                   <a href="#!" className="text-gray-800">
                     ¿No puede iniciar sesión?
                   </a>
