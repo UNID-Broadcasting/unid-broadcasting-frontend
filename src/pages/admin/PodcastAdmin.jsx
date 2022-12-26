@@ -6,7 +6,7 @@ const PodcastAdmin = () => {
   return (
     <>
       <Helmet>
-        <title>Podcast - UNID Radio y Televisión</title>
+        <title>Podcast Dashboard - UNID Radio y Televisión</title>
         <meta
           name="description"
           content="Bienvenido al apartado de podcast, espacio donde podrás agregar nuevos podcast, editarlos o eliminarlos"
