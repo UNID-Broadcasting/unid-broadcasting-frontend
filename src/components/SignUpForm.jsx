@@ -57,7 +57,6 @@ const SignUpForm = () => {
       });
       return;
     } else if (
-      /* El campo de correo solo debe admitir digitos, máximo 10 antes del @ */
       !user.email.match(
         /^[a-zA-Z0-9._-]{1,10}@[a-zA-Z0-9.-]{1,10}.[a-zA-Z]{2,4}$/
       )
