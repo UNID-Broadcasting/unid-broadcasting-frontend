@@ -24,10 +24,10 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-    setIsLogin(true);
     e.preventDefault();
 
-    if (captchaToken === "") {
+    /* Si está el captcha en localhost no entra el if */
+    if (captchaToken === "" && window.location.hostname !== "localhost") {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -47,6 +47,7 @@ const Login = () => {
     }
 
     try {
+      setIsLogin(true);
       const response = await loginService(user);
       login(response.data);
       if (response.status === 200) {
