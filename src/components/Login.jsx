@@ -26,16 +26,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    /* Si está el captcha en localhost no entra el if */
-    if (captchaToken === "" && window.location.hostname !== "localhost") {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Debes completar el captcha",
-      });
-      return;
-    }
-
     if (user.username === "" || user.password === "") {
       Swal.fire({
         icon: "error",
@@ -43,6 +33,16 @@ const Login = () => {
         text: "Todos los campos son obligatorios",
       });
       setIsLogin(false);
+      return;
+    }
+
+    /* Si está el captcha en localhost no entra el if */
+    if (captchaToken === "" && window.location.hostname !== "localhost") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Debes completar el captcha",
+      });
       return;
     }
 
@@ -96,11 +96,12 @@ const Login = () => {
                 {/* Username input */}
                 <div className="mb-6">
                   <input
+                    required
                     type="text"
                     name="username"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     id="exampleFormControlInput2"
-                    placeholder="Nombre de Usuario"
+                    placeholder="Nombre de usuario"
                     onChange={handleInputChange}
                     value={user.username}
                   />
@@ -108,6 +109,7 @@ const Login = () => {
                 {/* Password input */}
                 <div className="mb-6">
                   <input
+                    required
                     type="password"
                     name="password"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -131,14 +133,16 @@ const Login = () => {
                       Recuérdame
                     </label>
                   </div>
+                  <a href="#!" className="text-gray-800">
+                    ¿No puede iniciar sesión?
+                  </a>
+                </div>
+                <div className="mt-3 mb-3">
                   <HCaptcha
                     sitekey="326c8c0f-c7bf-439d-9bde-c8faa7e85b47"
                     onVerify={setCaptchaToken}
                     ref={captchaRef}
                   />
-                  <a href="#!" className="text-gray-800">
-                    ¿No puede iniciar sesión?
-                  </a>
                 </div>
                 <div className="text-center lg:text-left">
                   <button

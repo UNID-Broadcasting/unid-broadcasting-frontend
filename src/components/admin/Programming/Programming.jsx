@@ -6,7 +6,6 @@ import LoaderSpinner from "../../LoaderSpinner";
 const Programming = () => {
   const [programmingData, setProgrammingData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -45,7 +44,7 @@ const Programming = () => {
 
   return (
     <>
-      <div className="container mx-auto m-10 max-md:m-2">
+      <div className="container mx-auto mt-4 mb-4 p-10 md:p-2">
         {isLoading ? (
           <LoaderSpinner />
         ) : (
