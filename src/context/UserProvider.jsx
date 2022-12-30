@@ -11,6 +11,7 @@ const UserProvider = ({ children }) => {
     authStatus: false,
     role: null,
     isLoadingData: true,
+    imageProfileURL: null,
   });
 
   /* Función que recibe el login */
@@ -25,6 +26,7 @@ const UserProvider = ({ children }) => {
           authStatus: true,
           role: data.data.role,
           isLoadingData: false,
+          imageProfileURL: data.data.profileImage,
         });
       }
     } catch (error) {
@@ -43,6 +45,7 @@ const UserProvider = ({ children }) => {
       authStatus: false,
       role: null,
       isLoadingData: false,
+      imageProfileURL: null,
     });
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -61,6 +64,7 @@ const UserProvider = ({ children }) => {
             authStatus: true,
             role: response.data.role,
             isLoadingData: false,
+            imageProfileURL: response.data.profileImage,
           });
         }
       }
