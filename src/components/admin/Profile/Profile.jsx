@@ -6,14 +6,17 @@ import {
   getUserService,
   updateUserService,
 } from "../../../services/userServices";
+import { uploadFile } from "../../../firebase/config";
 
 const Profile = () => {
   const { user } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
+  const [file, setFile] = useState(null);
   const [userProfile, setUserProfile] = useState({
     name: "",
     lastname: "",
     password: "",
+    imageProfileURL: "",
   });
 
   const handleInputChange = (e) => {
@@ -23,9 +26,15 @@ const Profile = () => {
     });
   };
 
-  const updateProfile = (e) => {
+  const updateProfile = async (e) => {
     e.preventDefault();
     setIsLoading(false);
+    try {
+      const result = await uploadFile(file);
+      userProfile.imageProfileURL = result;
+    } catch (error) {
+      console.log(error);
+    }
     updateUserService(user.uid, userProfile)
       .then((res) => {
         Swal.fire({
@@ -75,25 +84,11 @@ const Profile = () => {
               <div className="w-full px-6 sm:w-1/2 xl:w-1/3">
                 <div className="flex items-center px-5 py-6 shadow-sm rounded-md bg-white">
                   <div className="p-3 rounded-full bg-indigo-600 bg-opacity-75">
-                    <svg
-                      className="h-8 w-8 text-white"
-                      viewBox="0 0 28 30"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0ZM14 25.6C7.52 25.6 2.4 20.48 2.4 14C2.4 7.52 7.52 2.4 14 2.4C20.48 2.4 25.6 7.52 25.6 14C25.6 20.48 20.48 25.6 14 25.6Z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M14 9.6C12.32 9.6 11 10.92 11 12.6C11 14.28 12.32 15.6 14 15.6C15.68 15.6 17 14.28 17 12.6C17 10.92 15.68 9.6 14 9.6ZM14 14.4C13.44 14.4 13 13.96 13 13.4C13 12.84 13.44 12.4 14 12.4C14.56 12.4 15 12.84 15 13.4C15 13.96 14.56 14.4 14 14.4Z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M14 6C16.76 6 19 8.24 19 11C19 13.76 16.76 16 14 16C11.24 16 9 13.76 9 11C9 8.24 11.24 6 14 6ZM14 14.4C15.68 14.4 17 13.08 17 11.4C17 9.72 15.68 8.4 14 8.4C12.32 8.4 11 9.72 11 11.4C11 13.08 12.32 14.4 14 14.4Z"
-                        fill="currentColor"
-                      />
-                    </svg>
+                    <img
+                      className="h-24 rounded-full  mx-auto"
+                      src={userProfile.imageProfileURL}
+                      alt={`profile-${userProfile.name}`}
+                    />
                   </div>
                   <div className="mx-5">
                     <h4 className="text-2xl font-semibold text-gray-700">
@@ -165,6 +160,22 @@ const Profile = () => {
                           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                       </div>
+                      <div>
+                        <label className="text-gray-700" htmlFor="photo">
+                          Foto de perfil
+                        </label>
+                        <input
+                          type="file"
+                          name="photo"
+                          id="photo"
+                          placeholder="Foto de perfil"
+                          onChange={(e) =>
+                            console.log(e) + setFile(e.target.files[0])
+                          }
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        />
+                      </div>
+
                       <div>
                         <label className="text-gray-700" htmlFor="career">
                           Carrera
