@@ -3,16 +3,7 @@ import logoImg from "../assets/logo-unid.png";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
-// import useAuth from '../hooks/useAuth'
-
 const Header = () => {
-  // const { auth } = useAuth()
-  // const { cerrarSesionAuth } = useAuth()
-  // const handleCerrarSesion = () => {
-  // 	cerrarSesionAuth()
-  // 	localStorage.removeItem('token')
-  // }
-
   const { user, logout } = useContext(UserContext);
 
   let Links = [
