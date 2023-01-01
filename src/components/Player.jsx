@@ -14,6 +14,7 @@ const Player = () => {
           showJumpControls={false}
           hasDefaultKeyBindings={false}
           autoPlayAfterSrcChange={true}
+          layout={"horizontal"}
         />
       </div>
     </>
