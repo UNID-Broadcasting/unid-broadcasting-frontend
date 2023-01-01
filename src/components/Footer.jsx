@@ -20,7 +20,7 @@ const Footer = () => {
           Av. Costera Miguel Alemán #2701, Deportivo, C.P. 39690 Acapulco de
           Juárez, Gro.{" "}
           <FontAwesomeIcon icon={faPhone} className="text-unid-yellow" />{" "}
-          Teléfono: 744 484 8000
+          Teléfono: 744 484 5200
         </p>
         <p className="text-sm">© {year} UNID</p>
         <p className="mt-2 text-sm text-center">
