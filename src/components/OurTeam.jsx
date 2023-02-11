@@ -16,8 +16,8 @@ const OurTeam = () => {
               src="https://randomuser.me/api/portraits/men/73.jpg"
               alt="team"
             />
-            <h3 className="text-xl font-bold mt-2">John Doe</h3>
-            <p className="text-gray-500">CEO</p>
+            <h3 className="text-xl font-bold mt-2">Kevin Luciano</h3>
+            <p className="text-gray-500">Desarrollador Web Full Stack</p>
           </div>
           <div className="flex flex-col items-center">
             <img
